@@ -1,0 +1,38 @@
+
+body {
+  font: 12px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.line {
+  fill: none;
+  stroke-width: 7px;
+}
+
+.country {opacity: 0.7;}
+.country:hover {opacity:1;}
+
+svg { top:100px;left:100px;}
+.brush .extent {
+      stroke: #000;
+      stroke-width: 1.5px;
+      fill: #000;
+      fill-opacity: 0.1;
+}
+
+.selected {
+    stroke: #000;
+    stroke-width: 2px;
+}

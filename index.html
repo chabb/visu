@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="/world.json"> </script>
+    <script src="http://d3js.org/topojson.v1.min.js"></script>
+    <script src="./js/jquery-1.7.min.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="./js/datas.js" charset="utf-8"></script>
+    <script src="./js/vis.js" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="./css/style.css"/>
+    <!-- Slick Grid Stuff -->
+    <link rel="stylesheet" href="./SLICKSTUFF/slick.grid.css" type="text/css"/>
+    <link rel="stylesheet" href="./css/smoothness/jquery-ui-1.8.16.custom.css" type="text/css"/>
+    <link rel="stylesheet" href="./SLICKSTUFF/examples.css" type="text/css"/>
+
+    <script src="./js/jquery.event.drag-2.2.js"></script>
+    <script src="./js/jquery-ui-1.8.16.custom.min.js"></script>
+    <script src="./SLICKSTUFF/slick.core.js"></script>
+    <script src="./SLICKSTUFF/slick.cellrangedecorator.js"></script>
+    <script src="./SLICKSTUFF/slick.cellrangeselector.js"></script>
+    <script src="./SLICKSTUFF/slick.formatters.js"></script>
+    <script src="./SLICKSTUFF/slick.cellselectionmodel.js"></script>
+    <script src="./SLICKSTUFF/slick.editors.js"></script>
+    <script src="./SLICKSTUFF/slick.grid.js"></script>
+    <script src="../plugins/slick.checkboxselectcolumn.js"></script>
+
+
+
+  </head>
+  <body>
+    <div class="infos">
+      <div class="options-panel">
+        <h2>Instructions:</h2>
+        <ul>
+          <li>Switch between scatterploat and line charts with the button</li>
+          <li>Select a row and see changes on the graph</li>
+          <li>Use checkbox column, or CMD KEY to select multiple rows</li>
+          <li>Use Domain Definition  to zoom/unzoom</li>
+        </ul>
+        <h2>Grid Editing</h2>
+          <li><b>Double click on a row to edit it</b></li>
+          <li><b>In scatter model, selecting a cell will highlight the point in the graph</b></li>
+          <li><b>Edit the chart, see the result on the graph</b></li>
+        </h2>
+
+      </div>
+      <div class="options-panel">
+        <h2>Rubber Lasso Manipulation (Only ScatterPlot)</h2>
+        <ul>
+          <li>Click to build a lasso </li>
+          <li>Double click when lasso is okay</li>
+          <li>Drag and drop to select points on the chart</li>
+          <li>Double click outside the selection to dispose the lasso </li>
+          <li>Selection will be highlighted and displayed below </li>
+        </ul>
+      </div>
+      <div class="options-panel">
+        <h2>Domain definition</h2>
+        <ul><li> Change domain to zoom into the graph </li> </ul>
+            <span class="pseudo-label"> Year </span>  <input type="text" id="x1"> <input type="text" id="x2"><br/>
+            <span class="pseudo-label">Income  </span><input type="text" id="y1"> <input type="text" id="y2">
+            <button id="changeDomain" onclick="switchDomain()">Switch</button>
+        <h2>Switch between scatter and line</h2>
+        <button id="switchPlot"  onclick="switchGraph(true)"><img src="./images/linechart.png"/ width="50" height="50"></button>
+        <button id="switchScatter" onclick="switchGraph(false)"><img src="./images/scatter-plot-xxl.png"/ width="50" height="50"></button>
+
+
+     </div>
+     <div class="options-panel" style="overflow:auto">
+      <h2>Lasso selection</h2>
+        <ul id="selection">
+        </ul>
+        <button id="dispose" onclick="disposeSelection()">Dispose</button>
+     </div>
+   </div>
+   <div class="clear"> </div>
+   <div id="vizu" class="infos" style="position:relative">
+      <div style="width:600px;display:inline-block">
+        <div id="myGrid" style="width:100%;height:500px;"></div>
+      </div>
+   </div>
+   <div id="world"> </div>
+
+
+  </body>
+<html>
